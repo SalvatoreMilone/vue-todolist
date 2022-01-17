@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+:root{
+    --colorbase1: rgb(110, 137, 175);
+    --colorbase2:  rgb(67, 91, 125);
+    --colorerror1:  rgb(199, 130, 118);
+    --colorerror2: rgb(110, 59, 50) ;
+}
+
+::selection{
+    background-color: rgba(255, 255, 255, .3);
+}
+
 body{
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,7 +30,7 @@ body{
 /* add */
 
 .todoAdd{
-    background-color: rgb(110, 137, 175);
+    background-color: var(--colorbase1);
     width: 100%;
     height: 50px;
     border-radius: 30px;
@@ -30,11 +41,6 @@ body{
     transition: all 300ms;
 }
 
-.todoAdd.alert{
-    background-color: rgb(199, 130, 118);
-
-}
-
 .todoAdd input{
     border-radius: 15px;
     padding: 5px;
@@ -42,28 +48,34 @@ body{
     transition: all 300ms;
 }
 
-
 .todoAdd > input:nth-child(2){
-    color: rgb(67, 91, 125);
+    color: var(--colorbase2);
     font-weight: bolder;
     background-color: white;
     border: none;
 }
 
-.todoAdd > input:nth-child(2):active{
-    filter: brightness(-2);
+.todoAdd > input:nth-child(2):active{ 
+    color:var(--colorbase1);
+}
+/* add error - quando non viene inserito qualcosa*/
+
+.todoAdd.alert > input:nth-child(2){ 
+    background-color: var(--colorerror2);
     color: white;
 }
 
-.todoAdd.alert > input:nth-child(2){
-    background-color: rgb(110, 59, 50);
-    color: white;
+.todoAdd.alert{      
+    background-color: var(--colorerror1);
 }
 
+.todoAdd.alert > input:nth-child(2):active{ 
+    color: var(--colorerror1);
+}
 
 /* listitem */
 .listitem{
-    color: rgb(110, 137, 175);
+    color: var(--colorbase1);
     background-color: rgb(212, 220, 231);
     height: 40px;
     width: fit-content;
@@ -77,27 +89,22 @@ body{
     font-weight: bolder;
     transition: all 300ms;
 }
-.active{
-    text-decoration:line-through;
-    background-color: rgb(199, 130, 118);
-    color: white;
-}
 
 .listitem button{
-    margin-left: 10px;
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    background-color: rgb(110, 137, 175);
+    background-color: var(--colorbase1);
     color: white;
     border:none;
 }
 
-
-.active button{
-    background-color: rgb(110, 59, 50);
+.active{
+    text-decoration:line-through;
+    background-color: var(--colorerror1);
+    color: white;
 }
 
-::selection{
-    background-color: rgba(255, 255, 255, .3);
+.active button{
+    background-color: var(--colorerror2);
 }

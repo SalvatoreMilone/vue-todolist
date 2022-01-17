@@ -14,13 +14,15 @@
         <div class="container">
 
             <div class="todoAdd" id="todoAdd">
-                <input class="inputtext" type="text" v-model="input" v-on:keyup.enter="add()">
+                <input class="inputtext" type="text" v-model="input" v-on:keyup.enter="add()" :placeholder="placeholder">
                 <input type="submit" value="Add" @click="add()">
             </div>
 
             <div class="todolistcontainer">
-                <div class="listitem" v-for="(elemento, index) in todoList" @click="done(elemento)" v-bind:class="{active: elemento.done}">
-                    {{elemento.text}} <button @click="deleted(index)"><i class="fas fa-times"></i></button>
+                <div class="listitem" v-for="(elemento, index) in todoList" v-bind:class="{active: elemento.done}">
+                    <button @click="done(elemento)"><i class="fas fa-check"></i></button>
+                    {{elemento.text}}
+                    <button @click="deleted(index)"><i class="fas fa-times"></i></button>
                 </div>
             </div>
 

@@ -4,6 +4,7 @@ let app = new Vue({
 	data: {
         input: "",
         todoList: [],
+        placeholder: ""
 	},
 
 	methods: {
@@ -11,11 +12,13 @@ let app = new Vue({
             let ToDo = document.getElementById("todoAdd");
             if(this.input == 0){
                     ToDo.classList.add("alert")
+                    this.placeholder = "Please write something"
                 return
             }
             this.todoList.push({ text: this.input, done: false});
             this.input = "";
             ToDo.classList.remove("alert")
+            this.placeholder = ""
         },
         deleted: function(index){
             this.todoList.splice(index,1)
