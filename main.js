@@ -3,7 +3,20 @@ let app = new Vue({
 	el: "#root",
 	data: {
         input: "",
-        todoList: [],
+        todoList: [
+            {
+                text: "Quarterly Newslette",
+                done: false
+            },
+            {
+                text: "Recruiting blog post",
+                done: true
+            },
+            {
+                text: "Mobile app lounch",
+                done: false
+            }
+        ],
         placeholder: ""
 	},
 

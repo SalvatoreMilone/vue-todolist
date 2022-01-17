@@ -14,7 +14,7 @@
         <div class="container">
 
             <div class="todoAdd" id="todoAdd">
-                <input class="inputtext" type="text" v-model="input" v-on:keyup.enter="add()" :placeholder="placeholder">
+                <input class="inputtext" type="text" v-model="input" v-on:keyup.enter="add()" :placeholder="placeholder" maxlength="40">
                 <input type="submit" value="Add" @click="add()">
             </div>
 

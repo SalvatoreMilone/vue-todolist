@@ -99,6 +99,14 @@ body{
     border:none;
 }
 
+.listitem button:first-child{
+    margin-right: 5px;
+}
+
+.listitem button:nth-child(2){
+    margin-left: 5px;
+}
+
 .active{
     text-decoration:line-through;
     background-color: var(--colorerror1);
